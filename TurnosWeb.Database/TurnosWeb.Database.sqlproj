@@ -74,4 +74,7 @@
   <ItemGroup>
     <PreDeploy Include="Pre-Deployment\01-CreateDB.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Post-Deployment\01-AddAppointmentStates.sql" />
+  </ItemGroup>
 </Project>

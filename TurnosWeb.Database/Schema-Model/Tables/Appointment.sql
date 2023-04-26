@@ -2,7 +2,7 @@
 (
 	[AppointmentId] INT NOT NULL,
 	[BarberId] INT NULL,
-	[StateId] INT NOT NULL,
+	[StateId] INT NOT NULL DEFAULT (1),
 	[AppointmentDate] DATETIME NOT NULL,
 	[ClientName] VARCHAR(50) NOT NULL,	
 	[TotalCharged] MONEY NULL,
