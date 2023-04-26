@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Api", "TurnosWeb.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TurnosWeb.Database", "TurnosWeb.Database\TurnosWeb.Database.sqlproj", "{6857DBA6-15CE-448F-825C-5BB444141AD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Data", "TurnosWeb.Data\TurnosWeb.Data.csproj", "{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{6857DBA6-15CE-448F-825C-5BB444141AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6857DBA6-15CE-448F-825C-5BB444141AD5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6857DBA6-15CE-448F-825C-5BB444141AD5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
