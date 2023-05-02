@@ -1,10 +1,8 @@
 using TurnosWeb.Data;
-using TurnosWeb.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using TurnosWeb.Services.Interfaces;
 using TurnosWeb.Services.Services;
 using TurnosWeb.Data.Dtos;
-using System.Threading;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +11,20 @@ var configuration = new ConfigurationManager().AddJsonFile("appSettings.json").B
 builder.Services.AddDbContext<TurnosWebContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 builder.Services.Add(new ServiceDescriptor(typeof(IContextService), typeof(TurnosWebContextService), ServiceLifetime.Scoped));
 builder.Services.AddScoped<IContextService, TurnosWebContextService>();
+
+builder.Services.AddCors();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(builder => builder
+.AllowAnyOrigin()
+.AllowAnyMethod()
+.AllowAnyHeader()
+);
 
 
 
@@ -68,6 +76,13 @@ app.MapGet("/Appointment/{id}", async (IContextService contextService, int id, C
     return await contextService.GetAppointmentByIdAsync(id, cancellationToken);
 })
 .WithName("GetAppointment")
+.WithOpenApi();
+
+app.MapGet("/Appointments", (IContextService contextService, CancellationToken cancellationToken) =>
+{
+    return contextService.GetAppointments();
+})
+.WithName("GetAppointments")
 .WithOpenApi();
 
 app.MapPut("/Appointment/{id}", async (IContextService contextService, int id, HttpRequest req, CancellationToken cancellationToken) =>
