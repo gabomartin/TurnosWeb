@@ -8,8 +8,12 @@ public interface IContextService
     IEnumerable<Service> GetServices();
     IEnumerable<Barber> GetBarbers();
     IEnumerable<Appointment> GetAppointments();
-    Task<int> CreateAppointment(AppointmentDto appointment);
-    Task<int> UpdateAppointment(AppointmentDto appointment, int id, CancellationToken cancellationToken);
-    Task<Service?> GetServiceById(int id, CancellationToken cancellationToken);
-    Task<Appointment?> GetAppointmentById(int id, CancellationToken cancellationToken);
+    IEnumerable<AppointmentService> GetAppointmentServicesByAppointmentId(int id);
+    Task<int> CreateAppointmentAsync(AppointmentDto appointment, CancellationToken cancellationToken);
+    Task<IEnumerable<int>> DeleteAppointmentServicesByAppointmentIdAsync(int appointmentId, CancellationToken cancellationToken);
+    Task<int> DeleteAppointmentServiceByIdAsync(int id, CancellationToken cancellationToken);
+    Task<IEnumerable<int>> CreateAppointmentServiceAsync(AppointmentServiceDto appointmentService, int appointmentId, CancellationToken cancellationToken);
+    Task<int> UpdateAppointmentAsync(AppointmentDto appointment, int id, CancellationToken cancellationToken);
+    Task<Service?> GetServiceByIdAsync(int id, CancellationToken cancellationToken);
+    Task<Appointment?> GetAppointmentByIdAsync(int id, CancellationToken cancellationToken);
 }

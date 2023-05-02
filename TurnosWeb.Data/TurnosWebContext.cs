@@ -31,7 +31,9 @@ namespace TurnosWeb.Data
                         .HasForeignKey(e => e.StateId);
 
                 entity.HasMany(e => e.Services)
-                       .WithOne(e => e.Appointment);
+                       .WithOne(e => e.Appointment)
+                       .HasPrincipalKey(e => e.AppointmentId)
+                       .HasForeignKey(e => e.ServiceId);
 
                 entity.Property(e => e.AppointmentDate).HasDefaultValueSql("(getdate())");
                 entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
@@ -51,7 +53,7 @@ namespace TurnosWeb.Data
                 entity.HasKey(e => e.AppointmentServiceId);
 
                 entity.HasOne(e => e.Appointment)
-                .WithMany()
+                .WithMany(e => e.Services)
                 .HasForeignKey(e => e.AppointmentId);
 
                 entity.HasOne(e => e.Service)

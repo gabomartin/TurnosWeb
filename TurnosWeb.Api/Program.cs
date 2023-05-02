@@ -7,9 +7,9 @@ using TurnosWeb.Data.Dtos;
 using System.Threading;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var configuration = new ConfigurationManager().AddJsonFile("appSettings.json").Build();
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddDbContext<TurnosWebContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 builder.Services.Add(new ServiceDescriptor(typeof(IContextService), typeof(TurnosWebContextService), ServiceLifetime.Scoped));
 builder.Services.AddScoped<IContextService, TurnosWebContextService>();
@@ -29,7 +29,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//Service 
+#region Service Endpoints
 app.MapGet("/Service", (IContextService contextService) =>
 {
     return contextService.GetServices();
@@ -39,31 +39,33 @@ app.MapGet("/Service", (IContextService contextService) =>
 
 app.MapGet("/Service/{id}", async (IContextService contextService, int id, CancellationToken cancellationToken) =>
 {
-    return await contextService.GetServiceById(id, cancellationToken);
+    return await contextService.GetServiceByIdAsync(id, cancellationToken);
 })
 .WithName("GetServiceById")
 .WithOpenApi();
+#endregion
 
-//Barber
+#region Barber Endpoints
 app.MapGet("/Barber/", (IContextService contextService) =>
 {
     return contextService.GetBarbers();
 })
 .WithName("GetBarbers")
 .WithOpenApi();
+#endregion
 
-//Appointment
-app.MapPost("/Appointment", async (IContextService contextService, HttpRequest req) =>
+#region Appointment Endpoints
+app.MapPost("/Appointment", async (IContextService contextService, HttpRequest req, CancellationToken cancellationToken) =>
 {
     var appointment = await req.ReadFromJsonAsync<AppointmentDto>();
-    return new { Id = await contextService.CreateAppointment(appointment) };
+    return new { Id = await contextService.CreateAppointmentAsync(appointment, cancellationToken) };
 })
 .WithName("PostAppointment")
 .WithOpenApi();
 
 app.MapGet("/Appointment/{id}", async (IContextService contextService, int id, CancellationToken cancellationToken) =>
 {
-    return await contextService.GetAppointmentById(id, cancellationToken);
+    return await contextService.GetAppointmentByIdAsync(id, cancellationToken);
 })
 .WithName("GetAppointment")
 .WithOpenApi();
@@ -71,10 +73,34 @@ app.MapGet("/Appointment/{id}", async (IContextService contextService, int id, C
 app.MapPut("/Appointment/{id}", async (IContextService contextService, int id, HttpRequest req, CancellationToken cancellationToken) =>
 {
     var appointment = await req.ReadFromJsonAsync<AppointmentDto>();
-    return new { Id = await contextService.UpdateAppointment(appointment, id, cancellationToken) };
+    return new { Id = await contextService.UpdateAppointmentAsync(appointment, id, cancellationToken) };
 })
 .WithName("UpdateAppointment")
 .WithOpenApi();
+#endregion
+
+#region Appointment Services Endpoints
+app.MapPost("/AppointmentService/{appointmentId}", async (IContextService contextService, int appointmentId, HttpRequest req, CancellationToken cancellationToken) =>
+{
+    var appointment = await req.ReadFromJsonAsync<AppointmentServiceDto>();
+    return new { Id = await contextService.CreateAppointmentServiceAsync(appointment, appointmentId, cancellationToken) };
+})
+.WithName("PostAppointmentService")
+.WithOpenApi();
+
+app.MapDelete("Appointment/AppointmentService/{appointmentId}", async (IContextService contextService, int appointmentId, CancellationToken cancellationToken) =>
+{
+    return new { AppointmentServiceIds = await contextService.DeleteAppointmentServicesByAppointmentIdAsync(appointmentId, cancellationToken) };
+})
+.WithName("DeleteAppointmentServices")
+.WithOpenApi();
+
+app.MapDelete("/AppointmentService/{appointmentServiceId}", async (IContextService contextService, int appointmentServiceId, CancellationToken cancellationToken) =>
+{
+    return new { AppointmentServiceId = await contextService.DeleteAppointmentServiceByIdAsync(appointmentServiceId, cancellationToken) };
+})
+.WithName("DeleteAppointmentService")
+.WithOpenApi();
+#endregion
 
 app.Run();
-

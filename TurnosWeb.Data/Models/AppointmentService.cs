@@ -20,11 +20,11 @@ namespace TurnosWeb.Data.Models
         [Required]
         public decimal AmountCharged { get; set; }
 
+        
         [ForeignKey("AppointmentId")]
-        //[InverseProperty("Appointment")]
         public Appointment Appointment { get; set; }
         [ForeignKey("ServiceId")]
-        //[InverseProperty("Service")]
         public Service Service { get; set; }
+        
     }
 }
