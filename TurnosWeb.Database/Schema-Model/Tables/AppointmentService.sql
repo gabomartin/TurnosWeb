@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AppointmentService]
 (
-	[AppointmentServiceId] INT NOT NULL,
+	[AppointmentServiceId] INT IDENTITY(1,1),
 	[AppointmentId] INT NOT NULL,
 	[ServiceId] INT NOT NULL,
 	[AmountCharged] MONEY NOT NULL

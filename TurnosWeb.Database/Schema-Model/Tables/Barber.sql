@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Barber]
 (
-	[BarberId] INT NOT NULL,
+	[BarberId] INT IDENTITY(1,1),
 	[BarberName] VARCHAR(50) NOT NULL,
 	[IsActive] BIT NOT NULL
 )

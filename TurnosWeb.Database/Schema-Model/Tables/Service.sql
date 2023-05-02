@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Service]
 (
-	[ServiceId] INT NOT NULL,
+	[ServiceId] INT IDENTITY(1,1),
 	[Description] VARCHAR(255) NOT NULL,
 	[Cost] MONEY NOT NULL,
 	[IsActive] BIT NOT NULL

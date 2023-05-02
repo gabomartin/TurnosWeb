@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Appointment]
 (
-	[AppointmentId] INT NOT NULL,
+	[AppointmentId] INT IDENTITY(1,1),
 	[BarberId] INT NULL,
 	[StateId] INT NOT NULL DEFAULT (1),
 	[AppointmentDate] DATETIME NOT NULL,

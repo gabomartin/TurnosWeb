@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{6857dba6-15ce-448f-825c-5bb444141ad5}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -63,6 +63,7 @@
     <Folder Include="Includes\TestData" />
     <Folder Include="Post-Deployment" />
     <Folder Include="Pre-Deployment" />
+    <Folder Include="Includes\SystemData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema-Model\Tables\Appointment.sql" />
@@ -70,11 +71,14 @@
     <Build Include="Schema-Model\Tables\Barber.sql" />
     <Build Include="Schema-Model\Tables\Service.sql" />
     <Build Include="Schema-Model\Tables\AppointmentService.sql" />
+    <None Include="Includes\TestData\01-AddTestBarbers.sql" />
+    <None Include="Includes\TestData\02-AddTestServices.sql" />
+    <None Include="Includes\SystemData\01-AddAppointmentStates.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Pre-Deployment\01-CreateDB.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Post-Deployment\01-AddAppointmentStates.sql" />
+    <PostDeploy Include="Post-Deployment\01-PostDeployment.sql" />
   </ItemGroup>
 </Project>

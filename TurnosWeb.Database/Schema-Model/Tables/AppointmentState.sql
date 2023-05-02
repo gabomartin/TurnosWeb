@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AppointmentState]
 (
-	[AppointmentStateId] INT NOT NULL PRIMARY KEY,
+	[AppointmentStateId] INT IDENTITY(1,1),
 	[Description] VARCHAR(25) NOT NULL
 )
 GO
