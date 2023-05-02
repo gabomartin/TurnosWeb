@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Api", "TurnosWeb.Api\TurnosWeb.Api.csproj", "{830D3727-875B-435B-B170-1C861FD46195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnosWeb.Api", "TurnosWeb.Api\TurnosWeb.Api.csproj", "{830D3727-875B-435B-B170-1C861FD46195}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TurnosWeb.Database", "TurnosWeb.Database\TurnosWeb.Database.sqlproj", "{6857DBA6-15CE-448F-825C-5BB444141AD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Data", "TurnosWeb.Data\TurnosWeb.Data.csproj", "{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnosWeb.Data", "TurnosWeb.Data\TurnosWeb.Data.csproj", "{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Services", "TurnosWeb.Services\TurnosWeb.Services.csproj", "{91D10821-209E-47B4-A689-42724CCC7305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91D10821-209E-47B4-A689-42724CCC7305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D10821-209E-47B4-A689-42724CCC7305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D10821-209E-47B4-A689-42724CCC7305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D10821-209E-47B4-A689-42724CCC7305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

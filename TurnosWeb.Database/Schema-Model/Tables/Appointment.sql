@@ -3,6 +3,7 @@
 	[AppointmentId] INT IDENTITY(1,1),
 	[BarberId] INT NULL,
 	[StateId] INT NOT NULL DEFAULT (1),
+	[AppointmentServiceId] INT NULL,
 	[AppointmentDate] DATETIME NOT NULL,
 	[ClientName] VARCHAR(50) NOT NULL,	
 	[TotalCharged] MONEY NULL,
