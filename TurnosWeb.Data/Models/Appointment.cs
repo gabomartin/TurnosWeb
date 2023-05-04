@@ -27,15 +27,13 @@ namespace TurnosWeb.Data.Models
         public DateTime ModifiedDate { get; set; }
 
         [ForeignKey("BarberId")]
-        //[InverseProperty("Barber")]
-        public Barber? Barber { get; set; }
+        public Barber Barber { get; set; }
 
         [ForeignKey("StateId")]
-        //[InverseProperty("State")]
         public AppointmentState State { get; set; }
 
         //[ForeignKey("AppointmentId")]
-        public List<AppointmentService>? Services { get; set; }
+        public ICollection<AppointmentService>? AppointmentServices { get; set; }
     }
 }
 

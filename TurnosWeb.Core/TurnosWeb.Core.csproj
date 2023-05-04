@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TurnosWeb.Core\TurnosWeb.Core.csproj" />
     <ProjectReference Include="..\TurnosWeb.Data\TurnosWeb.Data.csproj" />
   </ItemGroup>
 

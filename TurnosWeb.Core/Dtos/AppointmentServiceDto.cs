@@ -1,5 +1,5 @@
 ﻿
-namespace TurnosWeb.Data.Dtos
+namespace TurnosWeb.Core.Dtos
 {
     public class AppointmentServiceDto
     {

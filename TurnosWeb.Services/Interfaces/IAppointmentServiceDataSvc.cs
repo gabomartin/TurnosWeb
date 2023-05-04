@@ -1,4 +1,4 @@
-﻿using TurnosWeb.Data.Dtos;
+﻿using TurnosWeb.Core.Dtos;
 using TurnosWeb.Data.Models;
 
 namespace TurnosWeb.Services.Interfaces

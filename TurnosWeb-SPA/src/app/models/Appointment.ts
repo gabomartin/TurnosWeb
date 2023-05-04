@@ -1,10 +1,11 @@
-export interface Appointment {
+import { ServiceViewModel } from "./ServiceViewModel";
+
+export interface AppointmentViewModel {
 appointmentId: number,
-barberId: number,
-stateId: number,
-appointmentDate: string,
 clientName: string,
+barberName: number,
+state: number,
+appointmentDate: string,
 totalCharged: number,
-creationDate: string,
-updateDate: string
+services: [ServiceViewModel]
 }

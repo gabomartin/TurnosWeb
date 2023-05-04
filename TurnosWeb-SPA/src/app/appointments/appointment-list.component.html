@@ -1,0 +1,37 @@
+<div class="card-container">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title mb-4 px-1">Listado de turnos</h5>
+    <div class="table-responsive">
+      <table class="table" *ngIf="appointments.length">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Barbero</th>
+            <th>Estado</th>
+            <th>Fecha turno</th>
+            <th>Servicios</th>
+            <th>Total facturado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of appointments">
+            <td>{{ item.appointmentId }}</td>
+            <td>
+              <a>{{ item.clientName }}</a>
+            </td>
+            <td>{{ item.barberName }}</td>
+            <td>{{ item.state }}</td>
+            <td>{{ item.appointmentDate | date : "short" }}</td>
+            <td>
+              <li *ngFor="let serv of item.services">{{ serv.description }}</li>
+            </td>
+            <td>{{ item.totalCharged | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

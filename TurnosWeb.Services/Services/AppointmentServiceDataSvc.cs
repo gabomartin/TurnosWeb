@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TurnosWeb.Data;
-using TurnosWeb.Data.Dtos;
+using TurnosWeb.Core.Dtos;
 using TurnosWeb.Data.Models;
 using TurnosWeb.Services.Interfaces;
 

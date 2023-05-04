@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -20,11 +21,7 @@ namespace TurnosWeb.Data.Models
         [Required]
         public decimal AmountCharged { get; set; }
 
-        
-        [ForeignKey("AppointmentId")]
-        public Appointment Appointment { get; set; }
         [ForeignKey("ServiceId")]
         public Service Service { get; set; }
-        
     }
 }

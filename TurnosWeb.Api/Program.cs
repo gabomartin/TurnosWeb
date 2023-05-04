@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TurnosWeb.Data;
-using TurnosWeb.Data.Dtos;
+using TurnosWeb.Core.Dtos;
 using TurnosWeb.Services.Interfaces;
 using TurnosWeb.Services.Services;
 
@@ -88,7 +88,8 @@ app.MapGet("/Appointment/{id}", async (IAppointmentDataSvc contextService, int i
 .WithOpenApi();
 app.MapGet("/Appointments", (IAppointmentDataSvc contextService, CancellationToken cancellationToken) =>
 {
-    return contextService.GetAppointments();
+    var data = contextService.GetAppointmentsViewModel();
+    return data;
 })
 .WithName("GetAppointments")
 .WithOpenApi();
