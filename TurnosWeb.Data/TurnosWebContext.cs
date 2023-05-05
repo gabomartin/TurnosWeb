@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using TurnosWeb.Data.Models;
 
 namespace TurnosWeb.Data
@@ -30,10 +31,9 @@ namespace TurnosWeb.Data
                         .WithMany()
                         .HasForeignKey(e => e.StateId);
 
-                entity.HasMany(e => e.Services)
-                       .WithOne(e => e.Appointment)
-                       .HasPrincipalKey(e => e.AppointmentId)
-                       .HasForeignKey(e => e.ServiceId);
+                entity.HasMany(e => e.AppointmentServices)
+                       .WithOne()
+                       .HasForeignKey(e => e.AppointmentId);
 
                 entity.Property(e => e.AppointmentDate).HasDefaultValueSql("(getdate())");
                 entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
@@ -51,10 +51,6 @@ namespace TurnosWeb.Data
             {
                 entity.ToTable("AppointmentService");
                 entity.HasKey(e => e.AppointmentServiceId);
-
-                entity.HasOne(e => e.Appointment)
-                .WithMany(e => e.Services)
-                .HasForeignKey(e => e.AppointmentId);
 
                 entity.HasOne(e => e.Service)
                 .WithMany()

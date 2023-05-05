@@ -9,7 +9,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TurnosWeb.Database", "Turno
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnosWeb.Data", "TurnosWeb.Data\TurnosWeb.Data.csproj", "{4E588EA8-C1EA-4DF4-82B1-9FDB69F8181E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Services", "TurnosWeb.Services\TurnosWeb.Services.csproj", "{91D10821-209E-47B4-A689-42724CCC7305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnosWeb.Services", "TurnosWeb.Services\TurnosWeb.Services.csproj", "{91D10821-209E-47B4-A689-42724CCC7305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnosWeb.Core", "TurnosWeb.Core\TurnosWeb.Core.csproj", "{9E54A8DE-A6E4-4B2F-AD7E-CDB8E130C3BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{91D10821-209E-47B4-A689-42724CCC7305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91D10821-209E-47B4-A689-42724CCC7305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91D10821-209E-47B4-A689-42724CCC7305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E54A8DE-A6E4-4B2F-AD7E-CDB8E130C3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E54A8DE-A6E4-4B2F-AD7E-CDB8E130C3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E54A8DE-A6E4-4B2F-AD7E-CDB8E130C3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E54A8DE-A6E4-4B2F-AD7E-CDB8E130C3BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

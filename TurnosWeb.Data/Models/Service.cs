@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurnosWeb.Data.Models
 {
     [Table("Service")]
-    public class Service
+    public sealed class Service
     {
         [Key]
         public int ServiceId { get; set; }

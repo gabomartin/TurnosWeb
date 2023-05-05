@@ -1,8 +1,8 @@
 ﻿using TurnosWeb.Data.Models;
 
-namespace TurnosWeb.Services.Interfaces
+namespace TurnosWeb.Services.Abstractions
 {
-    public interface IBarberDataSvc
+    public interface IBarberDomainService
     {
         IEnumerable<Barber> GetBarbers();
     }

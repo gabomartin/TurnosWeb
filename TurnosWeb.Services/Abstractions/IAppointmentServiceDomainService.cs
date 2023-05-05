@@ -1,9 +1,9 @@
-﻿using TurnosWeb.Data.Dtos;
+﻿using TurnosWeb.Core.Dtos;
 using TurnosWeb.Data.Models;
 
-namespace TurnosWeb.Services.Interfaces
+namespace TurnosWeb.Services.Abstractions
 {
-    public interface IAppointmentServiceDataSvc
+    public interface IAppointmentServiceDomainService
     {
         Task<IEnumerable<int>> CreateAppointmentServiceAsync(AppointmentServiceDto appointmentService, int appointmentId, CancellationToken cancellationToken);
         Task<int> DeleteAppointmentServiceByIdAsync(int id, CancellationToken cancellationToken);

@@ -1,7 +1,6 @@
-﻿
-using TurnosWeb.Data.Models;
+﻿using TurnosWeb.Data.Models;
 
-namespace TurnosWeb.Data.Dtos
+namespace TurnosWeb.Core.Dtos
 {
     public class AppointmentDto
     {

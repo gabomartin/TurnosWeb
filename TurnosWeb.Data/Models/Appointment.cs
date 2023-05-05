@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurnosWeb.Data.Models
 {
     [Table("Appointment")]
-    public class Appointment
+    public sealed class Appointment
     {
         [Key]
         public int AppointmentId { get; set; }
@@ -27,25 +22,12 @@ namespace TurnosWeb.Data.Models
         public DateTime ModifiedDate { get; set; }
 
         [ForeignKey("BarberId")]
-        //[InverseProperty("Barber")]
-        public Barber? Barber { get; set; }
+        public Barber Barber { get; set; }
 
         [ForeignKey("StateId")]
-        //[InverseProperty("State")]
         public AppointmentState State { get; set; }
 
         //[ForeignKey("AppointmentId")]
-        public List<AppointmentService>? Services { get; set; }
+        public ICollection<AppointmentService>? AppointmentServices { get; set; }
     }
 }
-
-
-/*	[AppointmentId] INT NOT NULL,
-	[BarberId] INT NULL,
-	[StateId] INT NOT NULL DEFAULT (1),
-	[AppointmentDate] DATETIME NOT NULL,
-	[ClientName] VARCHAR(50) NOT NULL,	
-	[TotalCharged] MONEY NULL,
-	[CreationDate] DATETIME NOT NULL,
-	[ModifiedDate] DATETIME NOT NULL
-*/

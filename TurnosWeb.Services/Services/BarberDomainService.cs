@@ -1,13 +1,13 @@
 ﻿using TurnosWeb.Data;
 using TurnosWeb.Data.Models;
-using TurnosWeb.Services.Interfaces;
+using TurnosWeb.Services.Abstractions;
 
 namespace TurnosWeb.Services.Services
 {
-    public sealed class BarberDataSvc : IBarberDataSvc
+    public sealed class BarberDomainService : IBarberDomainService
     {
         private readonly TurnosWebContext _dbContext;
-        public BarberDataSvc(TurnosWebContext context)
+        public BarberDomainService(TurnosWebContext context)
         {
             _dbContext = context;
         }
