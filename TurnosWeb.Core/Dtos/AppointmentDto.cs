@@ -1,5 +1,4 @@
-﻿
-using TurnosWeb.Data.Models;
+﻿using TurnosWeb.Data.Models;
 
 namespace TurnosWeb.Core.Dtos
 {
