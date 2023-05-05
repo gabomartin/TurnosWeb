@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TurnosWeb.Data;
 using TurnosWeb.Data.Models;
-using TurnosWeb.Services.Interfaces;
+using TurnosWeb.Services.Abstractions;
 
 namespace TurnosWeb.Services.Services
 {
-    public sealed class ServiceDataSvc : IServiceDataSvc
+    public sealed class ServiceDomainService : IServiceDomainService
     {
         private readonly TurnosWebContext _dbContext;
-        public ServiceDataSvc(TurnosWebContext context)
+        public ServiceDomainService(TurnosWebContext context)
         {
             _dbContext = context;
         }

@@ -2,35 +2,36 @@
 using TurnosWeb.Data;
 using TurnosWeb.Core.Dtos;
 using TurnosWeb.Data.Models;
-using TurnosWeb.Services.Interfaces;
-using TurnosWeb.Core.ViewModels;
+using TurnosWeb.Services.Abstractions;
+using System.Threading;
 
 namespace TurnosWeb.Services.Services
 {
-    public sealed class AppointmentDataSvc : IAppointmentDataSvc
+    public sealed class AppointmentDomainService : IAppointmentDomainService
     {
         private readonly TurnosWebContext _dbContext;
-        public AppointmentDataSvc(TurnosWebContext context)
+        public AppointmentDomainService(TurnosWebContext context)
         {
             _dbContext = context;
         }
-        public IEnumerable<Appointment> GetAppointments()
-        {
-            return _dbContext.Appointment
-                .Include(s => s.State)
-                .Include(b => b.Barber)
-                .Include(s => s.AppointmentServices)
-                .ThenInclude(s => s.Service);
-        }
-
-        public IEnumerable<AppointmentViewModel> GetAppointmentsViewModel()
+        public Task<List<Appointment>> GetAppointments(CancellationToken cancellationToken)
         {
             return _dbContext.Appointment
                 .Include(s => s.State)
                 .Include(b => b.Barber)
                 .Include(s => s.AppointmentServices)
                 .ThenInclude(s => s.Service)
-                .Select(e => new AppointmentViewModel
+                .ToListAsync(cancellationToken);
+        }
+
+        public Task<List<AppointmentViewDto>> GetAppointmentsViewModel(CancellationToken cancellationToken)
+        {
+            return _dbContext.Appointment
+                .Include(s => s.State)
+                .Include(b => b.Barber)
+                .Include(s => s.AppointmentServices)
+                .ThenInclude(s => s.Service)
+                .Select(e => new AppointmentViewDto
                 {
                     AppointmentId = e.AppointmentId,
                     ClientName = e.ClientName,
@@ -42,9 +43,9 @@ namespace TurnosWeb.Services.Services
                     {
                         Id = s.ServiceId,
                         Description = s.Service.Description
-                    }),
+                    })
 
-                });
+                }).ToListAsync(cancellationToken);
         }
 
         public async Task<int> CreateAppointmentAsync(AppointmentDto appointment, CancellationToken cancellationToken)

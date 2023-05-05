@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using TurnosWeb.Data.Models;
 
-namespace TurnosWeb.Core.ViewModels
+namespace TurnosWeb.Core.Dtos
 {
-    public sealed class AppointmentViewModel
+    public sealed class AppointmentViewDto
     {
         public int AppointmentId { get; set; }
         public string ClientName { get; set; }
@@ -20,7 +20,7 @@ namespace TurnosWeb.Core.ViewModels
 
     public sealed class ServiceViewModel
     {
-        public int Id { get; set;}
-        public string Description { get; set; } 
+        public int Id { get; set; }
+        public string Description { get; set; }
     }
 }

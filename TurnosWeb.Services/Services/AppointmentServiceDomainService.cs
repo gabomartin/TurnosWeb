@@ -2,14 +2,14 @@
 using TurnosWeb.Data;
 using TurnosWeb.Core.Dtos;
 using TurnosWeb.Data.Models;
-using TurnosWeb.Services.Interfaces;
+using TurnosWeb.Services.Abstractions;
 
 namespace TurnosWeb.Services.Services
 {
-    public sealed class AppointmentServiceDataSvc : IAppointmentServiceDataSvc
+    public sealed class AppointmentServiceDomainService : IAppointmentServiceDomainService
     {
         private readonly TurnosWebContext _dbContext;
-        public AppointmentServiceDataSvc(TurnosWebContext context)
+        public AppointmentServiceDomainService(TurnosWebContext context)
         {
             _dbContext = context;
         }
