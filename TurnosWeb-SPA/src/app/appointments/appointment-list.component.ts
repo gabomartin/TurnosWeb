@@ -6,7 +6,6 @@ import { DatePipe } from '@angular/common';
 
 
 @Component({
-  selector: 'app-appointment',
   templateUrl: './appointment-list.component.html',
   styleUrls: ['./appointment-list.component.less']
 })
