@@ -12,15 +12,12 @@
             <label for="barber" class="form-label">Barbero</label>
             <select type="dropdown" class="form-select">
               <option></option>
-              <option value="1">Juan</option>
-              <option value="2">Rafa</option>
-              <option value="3">Mike</option>
-              <option value="3">Adolfo</option>
+              <option *ngFor="let barber of barbers" [value]="barber.barberId">{{ barber.barberName }}</option>
             </select>
           </div>
           <div class="mb-3">
-            <label for="barber" class="form-label">Estado</label>
-            <select type="dropdown" class="form-select">
+            <label for="state" class="form-label">Estado</label>
+            <select id="state" type="dropdown" class="form-select">
               <option></option>
               <option value="1">Programado</option>
               <option value="2">En curso</option>

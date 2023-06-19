@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AppointmentViewModel } from '../models/Appointment';
-import { DatePipe } from '@angular/common';
-
-
 
 @Component({
   templateUrl: './appointment-list.component.html',

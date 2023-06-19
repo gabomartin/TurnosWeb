@@ -1,4 +1,4 @@
-import { ServiceViewModel } from "./ServiceViewModel";
+import { ServiceDto } from "./ServiceDto";
 
 export interface AppointmentViewModel {
 appointmentId: number,
@@ -7,5 +7,5 @@ barberName: string,
 state: string,
 appointmentDate: string,
 totalCharged: number,
-services: ServiceViewModel[]
+services: ServiceDto[]
 }
